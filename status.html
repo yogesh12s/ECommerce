@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        {% if status == 'Success' %}
+            <div class="display-1 text-success mb-3"><i class="fa-solid fa-circle-check"></i></div>
+            <h2 class="fw-bold">Payment Successful!</h2>
+            <p class="text-muted">Thank you for your order. We are packing your accessories.</p>
+        {% else %}
+            <div class="display-1 text-danger mb-3"><i class="fa-solid fa-circle-xmark"></i></div>
+            <h2 class="fw-bold">Payment Failed</h2>
+            <p class="text-muted">Something went wrong. Please try again.</p>
+        {% endif %}
+        
+        <div class="card bg-light border-0 p-3 mt-4">
+            <small class="text-uppercase text-muted fw-bold">Transaction ID</small>
+            <div class="font-monospace user-select-all mt-1">{{ txn_id }}</div>
+        </div>
+
+        <a href="/" class="btn btn-dark rounded-pill px-5 mt-4">Continue Shopping</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .cart-item { border-bottom: 1px solid #eee; padding: 15px 0; display: flex; align-items: center; gap: 15px; }
+    .cart-img { width: 80px; height: 80px; border-radius: 10px; object-fit: cover; }
+    .qty-btn { width: 25px; height: 25px; border-radius: 50%; border: 1px solid #ddd; background: white; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: black; font-size: 0.8rem; }
+    .checkout-bar {
+        position: fixed; bottom: 60px; left: 0; width: 100%;
+        background: white; padding: 15px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+        display: flex; justify-content: space-between; align-items: center; z-index: 900;
+    }
+    @media (min-width: 768px) {
+        .checkout-bar { position: static; box-shadow: none; padding: 0; margin-top: 30px; justify-content: flex-end; gap: 20px; }
+    }
+</style>
+
+<div class="container mt-3 mt-md-5 mb-5">
+    <h2 class="fw-bold mb-4">Your Bag</h2>
+
+    {% if cart_items %}
+        <div class="bg-white rounded p-3 shadow-sm">
+            {% for item in cart_items %}
+            <div class="cart-item">
+                <img src="{{ item.product.image }}" class="cart-img" alt="">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1 fw-bold">{{ item.product.name }}</h6>
+                    <small class="text-muted">{{ item.product.category }}</small>
+                    <div class="d-flex align-items-center mt-2 gap-3">
+                        <a href="/update_cart/{{ item.product.id }}/remove" class="qty-btn"><i class="fa-solid fa-minus"></i></a>
+                        <span class="fw-bold">{{ item.qty }}</span>
+                        <a href="/update_cart/{{ item.product.id }}/add" class="qty-btn"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="text-end">
+                    <div class="fw-bold">₹{{ item.item_total }}</div>
+                    <a href="/update_cart/{{ item.product.id }}/delete" class="text-danger small text-decoration-none"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Checkout Section -->
+        <div class="checkout-bar">
+    <div>
+        <small class="text-muted d-block">Total</small>
+        <span class="fs-4 fw-bold">₹{{ total }}</span>
+    </div>
+    
+    <a href="/checkout_page" class="btn btn-dark rounded-pill px-5 py-2">
+        Proceed to Checkout <i class="fa-solid fa-arrow-right ms-2"></i>
+    </a>
+</div>
+
+        <!-- Spacer for mobile fixed bar -->
+        <div class="d-md-none" style="height: 80px;"></div>
+
+    {% else %}
+        <div class="text-center py-5">
+            <i class="fa-solid fa-basket-shopping display-1 text-muted mb-3 opacity-25"></i>
+            <h3>Your bag is empty</h3>
+            <p class="text-muted">Looks like you haven't added anything yet.</p>
+            <a href="/" class="btn btn-dark rounded-pill mt-3 px-4">Start Shopping</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms & Conditions — YourStore</title>
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1320;
+      --muted:#94a3b8;
+      --accent:#ff6b6b;
+      --glass: rgba(255,255,255,0.04);
+      --maxw:1000px;
+      --radius:14px;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071029 0%, #0f1724 100%);color:#e6eef8;line-height:1.6}
+    .wrap{max-width:var(--maxw);margin:32px auto;padding:28px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    header{display:flex;align-items:center;gap:16px}
+    .brand{display:flex;flex-direction:column}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff9a9a);display:flex;align-items:center;justify-content:center;font-weight:700;color:#102027}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    .content{display:grid;grid-template-columns:260px 1fr;gap:24px;margin-top:22px}
+    nav.toc{padding:18px;background:var(--card);border-radius:12px;position:sticky;top:28px;height:fit-content}
+    nav.toc h3{margin:0 0 8px 0;font-size:13px}
+    nav.toc ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+    nav.toc a{color:var(--muted);text-decoration:none;font-size:14px;padding:8px;border-radius:8px;display:block}
+    nav.toc a:hover{background:var(--glass);color:#fff}
+
+    article.terms{padding:22px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border-radius:12px}
+    article section{margin-bottom:18px}
+    article h2{margin:0 0 8px 0;font-size:16px}
+    article h3{margin:10px 0 6px 0;font-size:14px}
+    article p{margin:0 0 10px 0;color:#dbe9ff}
+    .muted{color:var(--muted);font-size:13px}
+
+    footer{margin-top:18px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#ff9a9a);color:#071029;text-decoration:none;font-weight:600}
+
+    code{background:rgba(255,255,255,0.03);padding:2px 6px;border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .content{grid-template-columns:1fr}
+      nav.toc{order:2;display:flex;overflow-x:auto;padding:10px;gap:6px}
+      nav.toc ul{flex-direction:row}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div class="logo">YS</div>
+      <div class="brand">
+        <h1>Terms & Conditions</h1>
+        <p class="lead">These terms govern use of the YourStore website and services. Last updated: <strong>29 November 2025</strong>.</p>
+      </div>
+    </header>
+
+    <div class="content">
+      <nav class="toc" aria-label="Table of contents">
+        <h3>On this page</h3>
+        <ul>
+          <li><a href="#acceptance">Acceptance of Terms</a></li>
+          <li><a href="#accounts">Account & Registration</a></li>
+          <li><a href="#orders">Orders & Pricing</a></li>
+          <li><a href="#payments">Payment</a></li>
+          <li><a href="#shipping">Shipping & Delivery</a></li>
+          <li><a href="#returns">Returns & Refunds</a></li>
+          <li><a href="#prohib">Prohibited Uses</a></li>
+          <li><a href="#intprop">Intellectual Property</a></li>
+          <li><a href="#liability">Limitation of Liability</a></li>
+          <li><a href="#termination">Termination</a></li>
+          <li><a href="#changes">Changes to Terms</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <article class="terms">
+        <section id="acceptance">
+          <h2>1. Acceptance of Terms</h2>
+          <p>By accessing or using <strong>YourStore</strong> ("the Service"), you agree to be bound by these Terms & Conditions and our <a href="#privacy" class="muted">Privacy Policy</a>. If you do not agree, do not use the Service.</p>
+        </section>
+
+        <section id="accounts">
+          <h2>2. Account & Registration</h2>
+          <p>To place orders you may be required to create an account. You must provide accurate information and keep your account credentials secure. You are responsible for all activity on your account.</p>
+          <h3>Account Safety</h3>
+          <p>Notify us immediately of any unauthorized use. We reserve the right to suspend or terminate accounts that violate these terms.</p>
+        </section>
+
+        <section id="orders">
+          <h2>3. Orders & Pricing</h2>
+          <p>All orders are subject to availability and acceptance. Prices are shown on the site in the displayed currency and may change without notice. We try to be accurate, but typographical errors or inaccuracies may occur.</p>
+          <p>If an item is listed at an incorrect price, we may cancel the order and notify you.</p>
+        </section>
+
+        <section id="payments">
+          <h2>4. Payment</h2>
+          <p>We accept the payment methods displayed during checkout. By providing payment information you represent and warrant that you are authorized to use the payment method.</p>
+          <p>All payments are processed securely by our payment processor; we do not store full card details on our servers.</p>
+        </section>
+
+        <section id="shipping">
+          <h2>5. Shipping & Delivery</h2>
+          <p>Estimated delivery times are provided for convenience and are not guaranteed. Shipping costs and estimated delivery dates are displayed at checkout. Risk of loss passes to you when we deliver the goods to the carrier.</p>
+        </section>
+
+        <section id="returns">
+          <h2>6. Returns, Exchanges & Refunds</h2>
+          <p>Return eligibility, timeframes, and procedures are described on our Returns Policy page. Unless otherwise required by law, items must be returned in original condition. Refunds may take up to 14 business days to process after receipt.</p>
+        </section>
+
+        <section id="prohib">
+          <h2>7. Prohibited Uses</h2>
+          <p>You agree not to use the Service for unlawful purposes or to transmit malicious code. Prohibited actions include but are not limited to: fraud, scraping, reverse engineering, or unauthorized access to our systems.</p>
+        </section>
+
+        <section id="intprop">
+          <h2>8. Intellectual Property</h2>
+          <p>All content on the Service — text, graphics, logos, images, and software — is owned or licensed by YourStore. You may not copy or reuse content without our written permission.</p>
+        </section>
+
+        <section id="liability">
+          <h2>9. Limitation of Liability</h2>
+          <p>To the fullest extent permitted by law, YourStore and its affiliates are not liable for indirect, incidental, special, consequential or punitive damages arising from your use of the Service.</p>
+          <p>Our total liability for direct damages shall not exceed the greater of the amount you paid us in the 12 months prior to the claim or USD 100.</p>
+        </section>
+
+        <section id="indemnity">
+          <h2>10. Indemnification</h2>
+          <p>You agree to indemnify and hold harmless YourStore, its officers, directors, employees, and agents from claims, damages, losses, liabilities and expenses arising from your breach of these Terms.</p>
+        </section>
+
+        <section id="termination">
+          <h2>11. Termination</h2>
+          <p>We may suspend or terminate access to the Service at any time, without prior notice, for conduct that we believe violates these Terms or is harmful to other users.</p>
+        </section>
+
+        <section id="privacy">
+          <h2>12. Privacy</h2>
+          <p>Our <a href="#">Privacy Policy</a> explains how we collect, use and disclose personal information. By using the Service you consent to such collection and use.</p>
+        </section>
+
+        <section id="cookies">
+          <h2>13. Cookies</h2>
+          <p>We use cookies and similar technologies to improve your experience. You may manage cookie preferences through your browser settings.</p>
+        </section>
+
+        <section id="changes">
+          <h2>14. Changes to Terms</h2>
+          <p>We may update these Terms from time to time. If we make material changes, we will notify you by a prominent notice on the site or by email.</p>
+        </section>
+
+        <section id="governing">
+          <h2>15. Governing Law</h2>
+          <p>These Terms are governed by the laws of the jurisdiction where YourStore is registered, without regard to conflict of laws principles.</p>
+        </section>
+
+        <section id="contact">
+          <h2>16. Contact</h2>
+          <p>If you have questions about these Terms, contact us at:</p>
+          <p class="muted">YourStore Pvt. Ltd.<br>123 Commerce Street, City, Country<br>Email: <a href="mailto:legal@yourstore.example">legal@yourstore.example</a><br>Phone: +1 (555) 555-0123</p>
+        </section>
+
+        <footer>
+          <small class="muted">This document is a template and does not constitute legal advice. Consider consulting a lawyer to adapt it to your jurisdiction and business model.</small>
+          <a class="btn" href="#contact">Contact Us</a>
+        </footer>
+      </article>
+    </div>
+  </div>
+</body>
+</html>

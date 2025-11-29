@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <h2 class="mb-4 fw-bold">Checkout</h2>
+            
+            <div class="card border-0 shadow-sm rounded-4 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+                    <h5 class="m-0 text-muted">Total Amount</h5>
+                    <h3 class="m-0 fw-bold">₹{{ total }}</h3>
+                </div>
+
+                <form action="/initiate_payment" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold small text-muted">Full Name</label>
+                        <input type="text" class="form-control bg-light" value="{{ current_user.name }}" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold small text-muted">Email Address</label>
+                        <input type="email" class="form-control bg-light" value="{{ current_user.email }}" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold small text-muted">Mobile Number <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">+91</span>
+                            <input type="tel" name="mobile" class="form-control border-start-0 ps-0" placeholder="9876543210" pattern="[6-9][0-9]{9}" required>
+                        </div>
+                        <div class="form-text">We need this for order updates and delivery.</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-muted">Shipping Address <span class="text-danger">*</span></label>
+                        <textarea name="address" class="form-control" rows="3" placeholder="House No, Street, City, Pincode" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark w-100 py-3 rounded-pill fw-bold">
+                        Pay Securely <i class="fa-solid fa-lock ms-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

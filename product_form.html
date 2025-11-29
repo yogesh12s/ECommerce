@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="mb-4">{{ action }} Product</h3>
+            <form method="POST" class="card p-4 shadow-sm">
+                <div class="mb-3">
+                    <label>Product Name</label>
+                    <input type="text" name="name" class="form-control" value="{{ product.name if product else '' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label>Price (₹)</label>
+                    <input type="number" name="price" class="form-control" value="{{ product.price if product else '' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label>Category</label>
+                    <input type="text" name="category" class="form-control" value="{{ product.category if product else '' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label>Image URL</label>
+                    <input type="text" name="image" class="form-control" value="{{ product.image if product else '' }}" placeholder="https://..." required>
+                    <small class="text-muted">Right click an image on Unsplash/Google -> Copy Image Address</small>
+                </div>
+                <button type="submit" class="btn btn-dark w-100">Save Product</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

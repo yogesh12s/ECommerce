@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex justify-content-between mb-4">
+        <h2>Admin Dashboard</h2>
+        <a href="/admin/product/add" class="btn btn-primary rounded-pill"><i class="fa-solid fa-plus"></i> Add Product</a>
+    </div>
+
+    <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#orders">Orders</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#products">Manage Products</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="orders">
+            <div class="card border-0 shadow-sm">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr><th>ID</th><th>User</th><th>Amount</th><th>Pay Status</th><th>Ship Status</th><th>Action</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>#{{ order.id }}</td>
+                            <td>{{ order.user.name }}</td>
+                            <td>₹{{ order.amount }}</td>
+                            <td><span class="badge {{ 'bg-success' if order.status == 'Paid' else 'bg-warning' }}">{{ order.status }}</span></td>
+                            <td><span class="badge bg-info text-dark">{{ order.delivery_status }}</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#orderModal{{ order.id }}">
+                                    Update
+                                </button>
+                                
+                                <div class="modal fade" id="orderModal{{ order.id }}" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form action="/admin/order/update/{{ order.id }}" method="POST">
+                                                <div class="modal-header"><h5>Update Order #{{ order.id }}</h5></div>
+                                                <div class="modal-body">
+                                                    <label>Delivery Status</label>
+                                                    <select name="delivery_status" class="form-select mb-3">
+                                                        <option value="Processing" {{ 'selected' if order.delivery_status == 'Processing' }}>Processing</option>
+                                                        <option value="Shipped" {{ 'selected' if order.delivery_status == 'Shipped' }}>Shipped</option>
+                                                        <option value="Delivered" {{ 'selected' if order.delivery_status == 'Delivered' }}>Delivered</option>
+                                                    </select>
+                                                    <label>Courier Name</label>
+                                                    <input type="text" name="courier_name" class="form-control mb-3" value="{{ order.courier_name or '' }}" placeholder="e.g. BlueDart">
+                                                    <label>Tracking ID</label>
+                                                    <input type="text" name="tracking_id" class="form-control" value="{{ order.tracking_id or '' }}" placeholder="Tracking Number">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="products">
+            <div class="row g-4">
+                {% for p in products %}
+                <div class="col-md-2">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="{{ p.image }}" class="card-img-top" style="height: 120px; object-fit: cover;">
+                        <div class="card-body p-2">
+                            <h6 class="small fw-bold">{{ p.name }}</h6>
+                            <p class="small text-muted mb-2">₹{{ p.price }}</p>
+                            <a href="/admin/product/edit/{{ p.id }}" class="btn btn-sm btn-light w-100">Edit</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
